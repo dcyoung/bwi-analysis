@@ -1,0 +1,13 @@
+[project]
+name = "bwi-helium-coverage-analysis"
+version = "0.1.0"
+description = "Visualizing QC data for Helium Coverage @ BWI airport."
+requires-python = ">=3.12"
+dependencies = [
+    "streamlit",
+    "pandas",
+    "numpy",
+    "pydeck",
+    # "plotly",
+    # "matplotlib",
+]

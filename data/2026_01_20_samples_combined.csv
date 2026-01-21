@@ -1,0 +1,42 @@
+RSSI,Wi-Fi Ookla UL,RSRP,Gate / Landmark,RxPhy,TA,Time,MNC,BSSID,Device/OS,Cellular Ookla UL,Cellular Ookla RTT,CID,Cellular Ookla DL,Lat,dataset,TxPhy,PCI,Wi-Fi Ookla DL,Wi-Fi Ookla RTT,SSID,MCC,TAC,EARFCN,Channel,Long,Band,BW ,RSRQ
+-54.0,170.0,-113.0,D1,228.0,32.0,,410.0,a8:53:7d:21:fd:2a,Android AT&T Pixel 8 Pro,3.0,33.0,18407.0,14.0,,d-concourse-android,229.0,105.0,146.0,9.0,Helium,310.0,6404.0,850.0,161.0,,5.0,20.0,-13.0
+-60.0,139.0,-113.0,D2,172.0,32.0,,410.0,A8:53:7D:21:FE:7B,Android AT&T Pixel 8 Pro,5.5,36.0,18408.0,28.6,,d-concourse-android,229.0,105.0,142.0,8.0,Helium,310.0,6404.0,66986.0,149.0,,5.0,10.0,-14.0
+-69.0,45.2,-110.0,D3,137.0,32.0,,410.0,70:90:41:47:61:14,Android AT&T Pixel 8 Pro,1.8,37.0,18407.0,18.6,,d-concourse-android,154.0,105.0,48.9,9.0,Helium,310.0,6404.0,850.0,44.0,,5.0,20.0,-14.0
+-47.0,138.0,-59.0,D4,286.0,7.0,,410.0,A8:53:7D:22:03:2C,Android AT&T Pixel 8 Pro,10.7,28.0,19494.0,90.6,,d-concourse-android,286.0,454.0,216.0,8.0,Helium,310.0,6404.0,5110.0,40.0,,5.0,10.0,-4.0
+-56.0,46.4,-114.0,D5,270.0,32.0,,410.0,A8:53:7D:22:1B:4A,Android AT&T Pixel 8 Pro,2.2,41.0,18407.0,80.7,,d-concourse-android,216.0,105.0,41.9,13.0,Helium,310.0,6404.0,850.0,6.0,,2.4,20.0,-14.0
+-69.0,117.0,-83.0,D7,137.0,9.0,,410.0,A8:53:7D:22:10:1C,Android AT&T Pixel 8 Pro,12.3,27.0,19494.0,129.0,,d-concourse-android,162.0,229.0,90.1,9.0,Helium,310.0,6404.0,66486.0,153.0,,5.0,10.0,-7.0
+-70.0,42.3,-79.0,D8,154.0,10.0,,410.0,A8:53:7D:22:0E:FB,Android AT&T Pixel 8 Pro,10.7,30.0,19494.0,147.0,,d-concourse-android,195.0,229.0,66.0,26.0,Helium,310.0,6404.0,66486.0,44.0,,5.0,10.0,-5.0
+-72.0,114.0,-83.0,D10,154.0,9.0,,410.0,A8:53:7D:22:10:1C,Android AT&T Pixel 8 Pro,11.9,32.0,19494.0,142.0,,d-concourse-android,146.0,229.0,84.4,10.0,Helium,310.0,6404.0,66486.0,153.0,,5.0,10.0,-7.0
+-64.0,162.0,-90.0,D11,258.0,9.0,,410.0,00:3E:73:C7:8F:45,Android AT&T Pixel 8 Pro,13.3,29.0,19494.0,88.8,,d-concourse-android,216.0,229.0,161.0,10.0,Helium,310.0,6404.0,66486.0,161.0,,5.0,10.0,-8.0
+-64.0,54.4,-87.0,D12,216.0,10.0,,410.0,A8:53:7D:21:E2:D5,Android AT&T Pixel 8 Pro,9.6,28.0,19494.0,83.5,,d-concourse-android,270.0,229.0,37.1,8.0,Helium,310.0,6404.0,66486.0,6.0,,2.4,10.0,-6.0
+-71.0,105.0,-87.0,D13,103.0,10.0,,410.0,A8:53:7D:21:E2:BB,Android AT&T Pixel 8 Pro,8.9,27.0,19494.0,76.0,,d-concourse-android,154.0,229.0,67.3,11.0,Helium,310.0,6404.0,66486.0,44.0,,5.0,10.0,-8.0
+-70.0,36.0,-85.0,D14,137.0,10.0,,410.0,A8:53:7D:21:E2:D5,Android AT&T Pixel 8 Pro,10.9,29.0,19494.0,62.9,,d-concourse-android,206.0,229.0,20.6,10.0,Helium,310.0,6404.0,66486.0,6.0,,2.4,10.0,-5.0
+-57.0,45.8,-86.0,D15,229.0,10.0,,410.0,A8:53:7D:21:FA:EB,Android AT&T Pixel 8 Pro,12.7,37.0,19494.0,104.0,,d-concourse-android,216.0,229.0,82.3,7.0,Helium,310.0,6404.0,66486.0,157.0,,5.0,10.0,-8.0
+-54.0,27.9,-87.0,D16,286.0,9.0,,410.0,A8:53:7D:21:FA:EB,Android AT&T Pixel 8 Pro,13.1,27.0,19494.0,96.0,,d-concourse-android,258.0,229.0,78.4,9.0,Helium,310.0,6404.0,66486.0,157.0,,5.0,10.0,-6.0
+-51.0,201.0,-87.0,D20,258.0,15.0,,410.0,A8:53:7D:22:08:FB,Android AT&T Pixel 8 Pro,11.2,29.0,19494.0,125.0,,d-concourse-android,286.0,229.0,203.0,6.0,Helium,310.0,6404.0,66486.0,48.0,,5.0,10.0,-9.0
+-72.0,134.0,-70.0,D21,162.0,13.0,,410.0,A8:53:7D:22:08:FB,Android AT&T Pixel 8 Pro,12.0,28.0,19494.0,186.0,,d-concourse-android,206.0,229.0,116.0,7.0,Helium,310.0,6404.0,66486.0,48.0,,5.0,10.0,-11.0
+-74.0,103.0,-77.0,D22,103.0,14.0,,410.0,A8:53:7D:22:0D:DC,Android AT&T Pixel 8 Pro,13.7,29.0,19494.0,153.0,,d-concourse-android,162.0,229.0,75.3,7.0,Helium,310.0,6404.0,66486.0,161.0,,5.0,10.0,-6.0
+-54.0,153.0,-78.0,D23,286.0,13.0,,410.0,A8:53:7D:22:0D:DC,Android AT&T Pixel 8 Pro,12.5,28.0,19494.0,119.0,,d-concourse-android,286.0,229.0,191.0,6.0,Helium,310.0,6404.0,66486.0,161.0,,5.0,10.0,-7.0
+-59.0,232.0,-82.0,D24,229.0,14.0,,410.0,A8:53:7D:22:0A:7C,Android AT&T Pixel 8 Pro,11.2,25.0,19494.0,57.5,,d-concourse-android,286.0,229.0,165.0,7.0,Helium,310.0,6404.0,66486.0,165.0,,5.0,10.0,-7.0
+-56.0,200.0,-88.0,D25,229.0,14.0,,410.0,A8:53:7D:22:06:EB,Android AT&T Pixel 8 Pro,10.9,29.0,19494.0,78.1,,d-concourse-android,286.0,229.0,165.0,6.0,Helium,310.0,6404.0,66486.0,48.0,,5.0,10.0,-7.0
+-54.0,208.0,-99.0,D26,258.0,21.0,,410.0,A8:53:7D:22:14:FB,Android AT&T Pixel 8 Pro,31.7,23.0,18292.0,159.0,,d-concourse-android,258.0,97.0,183.0,7.0,Helium,310.0,6404.0,850.0,153.0,,5.0,20.0,-16.0
+,,,D27,,,,,,Android AT&T Pixel 8 Pro,,,,,,d-concourse-android,,,,,Helium,,,,,,,,
+,,,D28,,,,,,Android AT&T Pixel 8 Pro,,,,,,d-concourse-android,,,,,Helium,,,,,,,,
+-71.0,164.0,-99.0,D29,154.0,21.0,,410.0,A8:53:7D:22:14:FB,Android AT&T Pixel 8 Pro,17.5,22.0,18292.0,67.5,,d-concourse-android,195.0,97.0,134.0,7.0,Helium,310.0,6404.0,850.0,153.0,,5.0,20.0,-12.0
+,,,D30,,,,,,Android AT&T Pixel 8 Pro,,,,,cant go,d-concourse-android,,,,,Helium,,,,,,,,
+,,,D31,,,,,,Android AT&T Pixel 8 Pro,,,,,cant go,d-concourse-android,,,,,Helium,,,,,,,,
+,,,D32,,,,,,Android AT&T Pixel 8 Pro,,,,,cant go,d-concourse-android,,,,,Helium,,,,,,,,
+,,,D33,,,,,,Android AT&T Pixel 8 Pro,,,,,cant go,d-concourse-android,,,,,Helium,,,,,,,,
+,,,D34,,,,,,Android AT&T Pixel 8 Pro,,,,,cant go,d-concourse-android,,,,,Helium,,,,,,,,
+,,,D35,,,,,,Android AT&T Pixel 8 Pro,,,,,cant go,d-concourse-android,,,,,Helium,,,,,,,,
+-56.0,170.0,-83.0,D36,229.0,13.0,,410.0,A8:53:7D:22:17:CC,Android AT&T Pixel 8 Pro,12.1,29.0,19494.0,185.0,,d-concourse-android,206.0,229.0,177.0,8.0,Helium,310.0,6404.0,66486.0,157.0,,5.0,10.0,-6.0
+-62.0,138.0,-91.0,D37,172.0,14.0,,410.0,A8:53:7D:22:17:CC,Android AT&T Pixel 8 Pro,12.9,28.0,19494.0,95.1,,d-concourse-android,172.0,229.0,142.0,7.0,Helium,310.0,6404.0,66486.0,157.0,,5.0,10.0,-7.0
+-74.0,64.0,-97.0,"D38,39,40",103.0,33.0,,410.0,A8:53:7D:22:17:CC,Android AT&T Pixel 8 Pro,24.0,24.0,18407.0,429.0,,d-concourse-android,130.0,105.0,61.7,7.0,Helium,310.0,6404.0,66486.0,157.0,,5.0,10.0,-10.0
+,,,D41,,,,,,Android AT&T Pixel 8 Pro,,,,,cant go,d-concourse-android,,,,,Helium,,,,,,,,
+,,,D42,,,,,,Android AT&T Pixel 8 Pro,,,,,cant go,d-concourse-android,,,,,Helium,,,,,,,,
+,,,D43,,,,,,Android AT&T Pixel 8 Pro,,,,,cant go,d-concourse-android,,,,,Helium,,,,,,,,
+,,,D44,,,,,,Android AT&T Pixel 8 Pro,,,,,cant go,d-concourse-android,,,,,Helium,,,,,,,,
+,,,D45,,,,,,Android AT&T Pixel 8 Pro,,,,,cant go,d-concourse-android,,,,,Helium,,,,,,,,
+,,,D46,,,,,,Android AT&T Pixel 8 Pro,,,,,cant go,d-concourse-android,,,,,Helium,,,,,,,,
+,,,D47,,,,,,Android AT&T Pixel 8 Pro,,,,,cant go,d-concourse-android,,,,,Helium,,,,,,,,
+,120.4,,,,,,,,,11.852,29.4,,112.636,,d-concourse-android,,,115.8,8.88,,,,,,,,,
