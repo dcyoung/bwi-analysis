@@ -162,16 +162,13 @@ for col, metric_col, filtered_df in zip(plot_cols, selected_metric_cols, filtere
         st.subheader("Histogram of Average per Landmark")
         values = grouped[metric_col].dropna().values
         if len(values) > 0:
-            hist, bin_edges = np.histogram(values, bins=20)
-            bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2
-            bin_labels = [f"{x:.2f}" for x in bin_centers]
-            hist_df = pd.DataFrame({"Avg": bin_labels, "Count": hist})
+            # Use Altair's binning and count() style
             hist_chart = (
-                alt.Chart(hist_df)
+                alt.Chart(grouped)
                 .mark_bar()
                 .encode(
-                    x=alt.X("Avg:N", title=f"Avg {metric_col}"),
-                    y=alt.Y("Count:Q", title="Count of Landmarks"),
+                    x=alt.X(f"{metric_col}", bin=True, title=f"Avg {metric_col}"),
+                    y=alt.Y("count()", title="Count of Landmarks"),
                 )
                 .properties(width=400, height=350)
             )
