@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import pydeck as pdk
 import altair as alt
-import numpy as np
 import os
 
 SAMPLES_COL_DATASET = "dataset"
@@ -96,7 +95,7 @@ for i, col in enumerate(FILTER_COLS):
         ]
 
         with st.expander("See included samples"):
-            st.dataframe(filtered_df, use_container_width=True)
+            st.dataframe(filtered_df, width="stretch")
 
         filtered_dfs.append(filtered_df)
 
@@ -108,7 +107,7 @@ for col, filtered_df in zip(stats_cols, filtered_dfs):
             continue
 
         with st.expander("See Filtered Summary Stats"):
-            st.dataframe(filtered_df.describe(), use_container_width=True)
+            st.dataframe(filtered_df.describe(), width="stretch")
 
 
 selected_metric_cols = []
@@ -157,7 +156,7 @@ for col, metric_col, filtered_df in zip(plot_cols, selected_metric_cols, filtere
             )
             .properties(width=400, height=350)
         )
-        st.altair_chart(bar_chart, use_container_width=True)
+        st.altair_chart(bar_chart, width="stretch")
 
         st.subheader("Histogram of Average per Landmark")
         values = grouped[metric_col].dropna().values
@@ -172,7 +171,7 @@ for col, metric_col, filtered_df in zip(plot_cols, selected_metric_cols, filtere
                 )
                 .properties(width=400, height=350)
             )
-            st.altair_chart(hist_chart, use_container_width=True)
+            st.altair_chart(hist_chart, width="stretch")
         else:
             st.info("No data to display histogram.")
 
