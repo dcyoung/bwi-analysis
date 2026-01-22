@@ -45,5 +45,9 @@ for i, df in enumerate(dfs):
 
 # Combine all
 combined = pd.concat(dfs, ignore_index=True)
+combined["Gate / Landmark"] = combined["Gate / Landmark"].map(
+    lambda x: "/".join([p.strip() for p in x.strip().split(",")]) if pd.notna(x) else x
+)
+
 combined.to_csv(out_path, index=False)
 print(f"Combined CSV written to {out_path}")

@@ -20,7 +20,7 @@ data_dir = os.path.join(os.path.dirname(__file__), "data")
 gates_path = os.path.join(data_dir, "gates.csv")
 samples_path = os.path.join(
     data_dir,
-    "2026_01_20_samples_combined.csv",
+    "2026_01_21_samples_combined.csv",
     # "samples_combined_jittered.csv"
 )
 
@@ -232,6 +232,11 @@ for col, metric_col, filtered_df in zip(plot_cols, selected_metric_cols, filtere
 
                     map_df["color"] = map_df[metric_col].apply(color_fn)
 
+            n_missing = grouped.shape[0] - map_df.shape[0]
+            if n_missing > 0:
+                st.info(
+                    f"{n_missing} sampled landmark(s) missing lat/lng or metric data and are excluded from the map."
+                )
             # Add a color legend for the map
             st.markdown("**Legend:**")
             min_val = float(min_val)
