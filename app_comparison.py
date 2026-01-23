@@ -117,75 +117,91 @@ def render_comparison_1():
 
 
 def render_comparison_2():
-    st.subheader("Comparison 2 - iOS vs. Android")
+    st.subheader("Comparison 2 — Android Cellular vs iOS 17 Wi-Fi")
 
-    datasets = ["B Concourse-Android", "B Concourse-iOS-17"]
-    st.info(datasets)
-    st.write("Uses data from the above datasets to compare iOS vs. Android.")
+    # --- Cohort definitions --------------------------------------------
+    cohorts = {
+        "Android Cellular": {
+            "dataset": "B Concourse-Android",
+            "network": "DAS",
+        },
+        "iOS 17 Wi-Fi": {
+            "dataset": "B Concourse-iOS-17",
+            "network": "Wi-Fi",
+        },
+    }
 
-    type = st.selectbox(
-        label="Select Comparison Type",
-        options=["DAS", "Wi-Fi"],
-        key="comparison2_type",
+    st.info(
+        [
+            f"{name}: {cfg['dataset']} ({cfg['network']})"
+            for name, cfg in cohorts.items()
+        ]
     )
 
-    metric_cols = {
-        "Wi-Fi": {
-            "Download Speed (Mbps)": SAMPLES_COL_WIFI_OOKLA_DL,
-            "Upload Speed (Mbps)": SAMPLES_COL_WIFI_OOKLA_UL,
-            "Latency (ms)": SAMPLES_COL_WIFI_OOKLA_RTT,
+    st.write("Compares DL / UL / RTT across the above cohorts.")
+
+    # --- Metric selector ------------------------------------------------
+    metric_map = {
+        "Download Speed (Mbps)": {
+            "Android Cellular": SAMPLES_COL_CELL_OOKLA_DL,
+            "iOS 17 Wi-Fi": SAMPLES_COL_WIFI_OOKLA_DL,
         },
-        "DAS": {
-            "Download Speed (Mbps)": SAMPLES_COL_CELL_OOKLA_DL,
-            "Upload Speed (Mbps)": SAMPLES_COL_CELL_OOKLA_UL,
-            "Latency (ms)": SAMPLES_COL_CELL_OOKLA_RTT,
+        "Upload Speed (Mbps)": {
+            "Android Cellular": SAMPLES_COL_CELL_OOKLA_UL,
+            "iOS 17 Wi-Fi": SAMPLES_COL_WIFI_OOKLA_UL,
+        },
+        "Latency (ms)": {
+            "Android Cellular": SAMPLES_COL_CELL_OOKLA_RTT,
+            "iOS 17 Wi-Fi": SAMPLES_COL_WIFI_OOKLA_RTT,
         },
     }
 
     title = st.selectbox(
-        label="Select Metric to Compare",
-        options=list(metric_cols[type].keys()),
+        "Select Metric",
+        options=list(metric_map.keys()),
         key="comparison2_metric",
     )
 
-    metric_col = metric_cols[type][title]
-    df = samples_df[samples_df[SAMPLES_COL_DATASET].isin(datasets)][
-        [
-            SAMPLES_COL_LANDMARK,
-            SAMPLES_COL_DEVICE_TYPE,
-            metric_col,
-        ]
-    ]
-    # .dropna(subset=[metric_col])
+    # --- Build comparison dataframe ------------------------------------
+    frames = []
 
-    avg_device_chart = (
-        alt.Chart(
-            df.groupby(SAMPLES_COL_DEVICE_TYPE, as_index=False)[metric_col].mean()
+    for cohort_name, cfg in cohorts.items():
+        metric_col = metric_map[title][cohort_name]
+
+        df_cohort = (
+            samples_df[samples_df[SAMPLES_COL_DATASET] == cfg["dataset"]][
+                [
+                    SAMPLES_COL_LANDMARK,
+                    metric_col,
+                ]
+            ]
+            .rename(columns={metric_col: "value"})
+            .assign(cohort=cohort_name)
         )
+
+        frames.append(df_cohort)
+
+    df = pd.concat(frames, ignore_index=True)
+
+    # --- Average comparison --------------------------------------------
+    avg_chart = (
+        alt.Chart(df)
         .mark_bar()
         .encode(
-            y=alt.Y(
-                f"{SAMPLES_COL_DEVICE_TYPE}:N",
-                title="Device Type",
-                sort="-x",
-            ),
-            x=alt.X(
-                f"{metric_col}:Q",
-                title=f"Average {title}",
-            ),
+            y=alt.Y("cohort:N", title="Cohort", sort="-x"),
+            x=alt.X("mean(value):Q", title=f"Average {title}"),
             tooltip=[
-                SAMPLES_COL_DEVICE_TYPE,
-                alt.Tooltip(metric_col, title=f"Avg {title}", format=".2f"),
+                alt.Tooltip("cohort:N", title="Cohort"),
+                alt.Tooltip("mean(value):Q", title=f"Avg {title}", format=".2f"),
             ],
         )
-        .properties(
-            title=f"Average {title} by Device Type",
-        )
+        .properties(title=f"Average {title}: Android Cellular vs iOS 17 Wi-Fi")
     )
 
-    st.altair_chart(avg_device_chart, width="stretch")
+    st.altair_chart(avg_chart, width="stretch")
 
-    device_by_landmark_chart = (
+    # --- By-landmark comparison ----------------------------------------
+    by_landmark_chart = (
         alt.Chart(df)
         .mark_bar()
         .encode(
@@ -194,27 +210,19 @@ def render_comparison_2():
                 title="Gate / Landmark",
                 sort="-y",
             ),
-            y=alt.Y(
-                f"{metric_col}:Q",
-                title=title,
-            ),
-            color=alt.Color(
-                f"{SAMPLES_COL_DEVICE_TYPE}:N",
-                title="Device Type",
-            ),
-            xOffset=f"{SAMPLES_COL_DEVICE_TYPE}:N",
+            y=alt.Y("value:Q", title=title),
+            color=alt.Color("cohort:N", title="Cohort"),
+            xOffset="cohort:N",
             tooltip=[
                 SAMPLES_COL_LANDMARK,
-                SAMPLES_COL_DEVICE_TYPE,
-                alt.Tooltip(metric_col, title=title, format=".2f"),
+                alt.Tooltip("cohort:N", title="Cohort"),
+                alt.Tooltip("value:Q", title=title, format=".2f"),
             ],
         )
-        .properties(
-            title=f"{title} by Landmark (iOS vs Android Device Types)",
-        )
+        .properties(title=f"{title} by Landmark")
     )
 
-    st.altair_chart(device_by_landmark_chart, width="stretch")
+    st.altair_chart(by_landmark_chart, width="stretch")
 
 
 def render_comparison_3():
@@ -243,13 +251,22 @@ def render_comparison_3():
             SAMPLES_COL_DATASET,
             metric_col,
         ]
-    ]
-    # .dropna(subset=[metric_col])
+    ].dropna(subset=[metric_col])
 
     SAMPLES_COL_CONFIG = "Config"
     df[SAMPLES_COL_CONFIG] = df[SAMPLES_COL_DATASET].map(
         {"B Concourse-iOS-14": "PP On", "B Concourse-iOS-14-PPoff": "PP Off"}
     )
+
+    # Limit to landmarks that have both configs
+    valid_landmarks = (
+        df.groupby(SAMPLES_COL_LANDMARK)[SAMPLES_COL_CONFIG]
+        .nunique()
+        .loc[lambda s: s == 2]
+        .index
+    )
+
+    df = df[df[SAMPLES_COL_LANDMARK].isin(valid_landmarks)]
 
     avg_chart = (
         alt.Chart(df.groupby(SAMPLES_COL_CONFIG, as_index=False)[metric_col].mean())
